@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
 
   # GET /flats or /flats.json
   def index
-    @flats = Flat.all
+    @flats = Flat.near([-20,57], 100)
 
     @markers = @flats.geocoded.map do |flat|
       {
